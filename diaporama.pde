@@ -13,7 +13,7 @@ PImage img;
 
 void setup() {
   size( displayWidth, displayHeight);
-  textSize( 9);
+  textSize( 16);
   imageMode( CENTER);
   images = filesInFolder( sketchPath( IMAGE_FOLDER));
   loadNext();
@@ -22,6 +22,8 @@ void setup() {
 void draw() {
   background( 0);
   image( img, width/2, height/2, imgWidth, imgHeight);
+  fill( 255);
+  text( "" + displayWidth + " x " + displayHeight + "px (" + int( frameRate) + " fps)", 50, height-100);
 }
 
 void mousePressed() {
