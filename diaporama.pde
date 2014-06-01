@@ -3,12 +3,12 @@
 import java.io.File;
 import java.util.Iterator;
 
-final String IMAGE_FOLDER = "data/set-01";
+final String IMAGE_FOLDER = "data/";
 
 ArrayList<String> images;
 java.util.Iterator imagesIter;
 float fitFactor, fitHeightFactor, fitWidthFactor, imgWidth, imgHeight;
-String imgPath;
+String imgPath;  
 PImage img;
 
 void setup() {
@@ -54,7 +54,7 @@ ArrayList filesInFolder( String folderPath) {
   File folder = new File( folderPath);
   for (File file : folder.listFiles()) {
     if( file.isFile()) {
-      fname = file.getName();
+      fname = file.getAbsolutePath();
       if( fname.endsWith( ".jpg") || fname.endsWith( ".png")) {
         filesList.add( fname);
       }
