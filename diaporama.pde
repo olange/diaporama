@@ -3,7 +3,7 @@
 import java.io.File;
 import java.util.Iterator;
 
-final String IMAGE_FOLDER = "data/";
+final String IMAGE_FOLDER = "data/set-01/";
 
 ArrayList<String> images;
 java.util.Iterator imagesIter;
