@@ -12,6 +12,7 @@ String imgPath;  
 PImage img;
 
 void setup() {
+  // size( 1540, 1200); Panasonic FC-32
   size( displayWidth, displayHeight);
   textSize( 16);
   imageMode( CENTER);
@@ -23,7 +24,8 @@ void draw() {
   background( 0);
   image( img, width/2, height/2, imgWidth, imgHeight);
   fill( 255);
-  text( "" + displayWidth + " x " + displayHeight + "px (" + int( frameRate) + " fps)", 50, height-100);
+  text( str( displayWidth) + " x " + str( displayHeight) + "px (" + str( int( frameRate)) + " fps)\n"
+        + "(" + width + " x " + height + "px actually used)", 50, height-100);
 }
 
 void mousePressed() {
