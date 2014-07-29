@@ -32,6 +32,16 @@ void mousePressed() {
   loadNext();
 }
 
+void keyPressed() {
+  if (key == CODED) {
+    if (keyCode == RIGHT) {
+      loadNext();
+    } 
+  } else if( key == ' ') {
+      loadNext();
+  }
+}
+
 void loadNext() {
   imgPath = nextImage(); 
   img = loadImage( imgPath);
