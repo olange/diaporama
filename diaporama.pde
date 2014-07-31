@@ -32,8 +32,7 @@ void draw() {
   background( 0);
   image( img, width/2, height/2, imgWidth, imgHeight);
   fill( 255);
-  text( str( displayWidth) + " x " + str( displayHeight) + "px (" + str( int( frameRate)) + " fps)\n"
-        + "(" + width + " x " + height + "px actually used)", 50, height-140);
+  displayStatus();
   if( SYPHON_OUTPUT) { server.sendScreen(); }
 }
 
@@ -51,8 +50,15 @@ void keyPressed() {
   }
 }
 
+void displayStatus() {
+  text( str( displayWidth) + " x " + str( displayHeight) + "px (" + str( int( frameRate)) + " fps)\n"
+        + "(" + width + " x " + height + "px actually used)\n"
+        + imgPath, 50, 50);
+}
+
 void loadNext() {
   imgPath = nextImage();
+  println( "Next: " + imgPath);
   img = loadImage( imgPath);
   imgWidth = (float)img.width;
   imgHeight = (float)img.height;
