@@ -15,13 +15,14 @@ PImage img;
 
 void setup() {
   if( SYPHON_OUTPUT) {
-    size( 3840, 1024, P3D);
+    size( 1280 * 2 + 1440, 1024, P2D);
     server = new SyphonServer( this, "Processing sketch");
   } else {
     // size( 1540, 1200); Panasonic FC-32
     size( displayWidth, displayHeight);
     if( frame != null) { frame.setResizable( true); }
   }
+  frameRate( 25);
   textSize( 16);
   imageMode( CENTER);
   images = filesInFolder( sketchPath( IMAGE_FOLDER));
