@@ -3,7 +3,7 @@ import java.io.File;
 import java.util.Iterator;
 import codeanticode.syphon.*;
 
-final String IMAGE_FOLDER = "data/set-01/";
+final String IMAGE_FOLDER = "data/set-02/";
 final boolean SYPHON_OUTPUT = true;
 
 SyphonServer server;
