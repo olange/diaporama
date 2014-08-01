@@ -3,8 +3,10 @@ import java.io.File;
 import java.util.Iterator;
 import codeanticode.syphon.*;
 
-final String IMAGE_FOLDER = "data/set-02/";
+final String IMAGE_FOLDER = "data/set-03/";
 final boolean SYPHON_OUTPUT = true;
+final int resX = 4160; // 1280 * 2 + 1600
+final int resY = 1024;
 
 SyphonServer server;
 ArrayList<String> images;
@@ -15,14 +17,14 @@ PImage img;
 
 void setup() {
   if( SYPHON_OUTPUT) {
-    size( 1280 * 2 + 1440, 1024, P2D);
+    size( resX, resY, P2D);
     server = new SyphonServer( this, "Processing sketch");
   } else {
     // size( 1540, 1200); Panasonic FC-32
     size( displayWidth, displayHeight);
     if( frame != null) { frame.setResizable( true); }
   }
-  frameRate( 25);
+  frameRate( 12);
   textSize( 16);
   imageMode( CENTER);
   images = filesInFolder( sketchPath( IMAGE_FOLDER));
