@@ -5,7 +5,7 @@ import codeanticode.syphon.*;
 
 final String IMAGE_FOLDER = "data/set-03/";
 final boolean SYPHON_OUTPUT = true;
-final int resX = 4160; // 1280 * 2 + 1600
+final int resX = 6080; // 1280 * 2 + 1600 + 1920
 final int resY = 1024;
 
 SyphonServer server;
