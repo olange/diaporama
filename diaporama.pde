@@ -3,7 +3,7 @@ import java.io.File;
 import java.util.Iterator;
 import codeanticode.syphon.*;
 
-final String IMAGE_FOLDER = "data/set-03/";
+final String IMAGE_FOLDER = "data/set-04/";
 final boolean SYPHON_OUTPUT = true;
 final int resX = 6080; // 1280 * 2 + 1600 + 1920
 final int resY = 1024;
