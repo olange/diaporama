@@ -1,16 +1,15 @@
-// import java.io.FilenameFilter;
-import java.io.File;
 import java.util.Iterator;
 import codeanticode.syphon.*;
 
 final String IMAGE_FOLDER = "data/set-04/";
-final boolean SYPHON_OUTPUT = true;
-final int resX = 6080; // 1280 * 2 + 1600 + 1920
+final boolean SYPHON_OUTPUT = false;
+final int resX = 6080; // = 1280 * 2 (Acer+Dell) + 1600 (Panasonic FC-32) + 1920 (AppleTV 1080p)
 final int resY = 1024;
 
 SyphonServer server;
-ArrayList<String> images;
-java.util.Iterator imagesIter;
+ImageFileList images;
+Iterator imagesIter;
+
 float fitFactor, fitHeightFactor, fitWidthFactor, imgWidth, imgHeight;
 String imgPath;  
 PImage img;
@@ -27,8 +26,10 @@ void setup() {
   frameRate( 12);
   textSize( 16);
   imageMode( CENTER);
-  images = filesInFolder( sketchPath( IMAGE_FOLDER));
+  images = new ImageFileList( sketchPath( IMAGE_FOLDER));
+  printImagesList();
   loadNext();
+  noLoop();
 }
 
 void draw() {
@@ -47,7 +48,7 @@ void keyPressed() {
   if (key == CODED) {
     if (keyCode == RIGHT) {
       loadNext();
-    } 
+    }
   } else if( key == ' ') {
       loadNext();
   }
@@ -57,6 +58,13 @@ void displayStatus() {
   text( str( displayWidth) + " x " + str( displayHeight) + "px (" + str( int( frameRate)) + " fps)\n"
         + "(" + width + " x " + height + "px actually used)\n"
         + imgPath, 50, 50);
+}
+
+void printImagesList() {
+  println( "List of images found in " + images.basePath + ":");
+  for( String imagePath: images.filesList) {
+    println( imagePath);
+  }
 }
 
 void loadNext() {
@@ -74,23 +82,8 @@ void loadNext() {
 
 String nextImage() {
   if( imagesIter == null || !imagesIter.hasNext()) {
-    imagesIter = images.iterator();
+    imagesIter = images.filesList.iterator();
   }
   String imgPath = (String)imagesIter.next();
   return imgPath;
-}
-
-ArrayList filesInFolder( String folderPath) {
-  ArrayList<String> filesList = new ArrayList<String>();
-  String fname;
-  File folder = new File( folderPath);
-  for (File file : folder.listFiles()) {
-    if( file.isFile()) {
-      fname = file.getAbsolutePath();
-      if( fname.endsWith( ".jpg") || fname.endsWith( ".png")) {
-        filesList.add( fname);
-      }
-    }
-  }
-  return( filesList);
 }
