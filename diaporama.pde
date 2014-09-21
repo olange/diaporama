@@ -29,7 +29,7 @@ void setup() {
   images = new ImageFileList( sketchPath( IMAGE_FOLDER));
   printImagesList();
   loadNext();
-  noLoop();
+  // noLoop();
 }
 
 void draw() {
