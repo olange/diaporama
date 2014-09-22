@@ -1,7 +1,7 @@
 import java.util.Iterator;
 import codeanticode.syphon.*;
 
-final String IMAGE_FOLDER = "data/set-04/";
+final String IMAGE_FOLDER = "data/camo-20140921/";
 final static int NUM_DMX_CHANNELS_WATCHED = 6;
 final boolean SYPHON_OUTPUT = true;
 final int resX = 6080; // = 1280 * 2 (Acer+Dell) + 1600 (Panasonic FC-32) + 1920 (AppleTV 1080p)
@@ -50,8 +50,7 @@ void draw() {
   background( 0);
   image( img, width/2, height/2, imgWidth, imgHeight);
   fill( 255);
-  displayStatus();
-
+  // displayStatus();
   if( SYPHON_OUTPUT) { server.sendScreen(); }
 }
 
